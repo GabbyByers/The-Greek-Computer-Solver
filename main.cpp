@@ -41,16 +41,15 @@ int main()
 
 	int greek_computer[5][4][12] = { { {} } };
 	int sums[12] = {};
-	int r0 = 0, r1 = 0, r2 = 0, r3 = 0;
-	int solution[5] = {};
+	int rotation[5] = {};
 	int solutions = 0;
 
 	while (true)
 	{
-		solution[1] = step % 12;
-		solution[2] = (step / 12) % 12;
-		solution[3] = (step / 144) % 12;
-		solution[4] = (step / 1728) % 12;
+		rotation[1] = step % 12;
+		rotation[2] = (step / 12) % 12;
+		rotation[3] = (step / 144) % 12;
+		rotation[4] = (step / 1728) % 12;
 
 		for (int i = 0; i < 5; i++)
 		{
@@ -58,7 +57,7 @@ int main()
 			{
 				for (int k = 0; k < 12; k++)
 				{
-					greek_computer[i][j][k] = raw_data[i][j][(k + solution[i]) % 12];
+					greek_computer[i][j][k] = raw_data[i][j][(k + rotation[i]) % 12];
 				}
 			}
 		}
